@@ -131,7 +131,12 @@ class _Decoration extends StatelessWidget {
         filter: ui.ImageFilter.blur(sigmaX: kBlurAmount, sigmaY: kBlurAmount),
         child: ColoredBox(
           color: color,
-          child: child,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+            ),
+            child: child,
+          ),
         ),
       ),
     );
