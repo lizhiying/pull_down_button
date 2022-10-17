@@ -22,6 +22,7 @@ class PullDownMenuRoute extends PopupRoute<VoidCallback> {
     required this.menuPosition,
     required this.capturedThemes,
     required this.widthConfiguration,
+    this.borderRadius,
   }) : itemSizes = List<Size?>.filled(items.length, null);
 
   final List<PullDownMenuEntry> items;
@@ -29,6 +30,8 @@ class PullDownMenuRoute extends PopupRoute<VoidCallback> {
   final Color? backgroundColor;
   final CapturedThemes capturedThemes;
   final PullDownMenuWidthConfiguration? widthConfiguration;
+
+  final BorderRadius? borderRadius;
 
   @protected
   final RelativeRect position;
@@ -64,7 +67,7 @@ class PullDownMenuRoute extends PopupRoute<VoidCallback> {
     Animation<double> animation,
     Animation<double> secondaryAnimation,
   ) {
-    final Widget menu = PullDownMenu(route: this);
+    final Widget menu = PullDownMenu(route: this, borderRadius: borderRadius);
 
     final mediaQuery = MediaQuery.of(context);
 

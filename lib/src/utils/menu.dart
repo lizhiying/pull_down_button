@@ -20,9 +20,11 @@ class PullDownMenu extends StatelessWidget {
   const PullDownMenu({
     super.key,
     required this.route,
+    this.borderRadius,
   });
 
   final PullDownMenuRoute route;
+  final BorderRadius? borderRadius;
 
   static final _shadowTween = DecorationTween(
     begin: const BoxDecoration(
@@ -91,6 +93,7 @@ class PullDownMenu extends StatelessWidget {
       },
       child: _Decoration(
         backgroundColor: route.backgroundColor,
+        borderRadius: borderRadius,
         child: innerAnimation,
       ),
     );
@@ -100,10 +103,15 @@ class PullDownMenu extends StatelessWidget {
 /// Menu container - shape, blur, color.
 @immutable
 class _Decoration extends StatelessWidget {
-  const _Decoration({required this.child, required this.backgroundColor});
+  const _Decoration({
+    required this.child,
+    required this.backgroundColor,
+    required this.borderRadius,
+  });
 
   final Widget child;
   final Color? backgroundColor;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +126,7 @@ class _Decoration extends StatelessWidget {
     );
 
     return ClipRRect(
-      borderRadius: kBorderRadius,
+      borderRadius: borderRadius ?? kBorderRadius,
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: kBlurAmount, sigmaY: kBlurAmount),
         child: ColoredBox(

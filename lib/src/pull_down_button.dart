@@ -79,6 +79,7 @@ class PullDownButton extends StatefulWidget {
     this.backgroundColor,
     this.widthConfiguration,
     this.applyOpacity,
+    this.borderRadius,
   });
 
   /// Called when the button is pressed to create the items to show in the menu.
@@ -139,6 +140,8 @@ class PullDownButton extends StatefulWidget {
   /// [PullDownButtonThemeDefaults.applyOpacity] is used.
   final bool? applyOpacity;
 
+  final BorderRadius? borderRadius;
+
   @override
   State<PullDownButton> createState() => _PullDownButtonState();
 }
@@ -190,6 +193,7 @@ class _PullDownButtonState extends State<PullDownButton> {
         buttonSize: button.size,
         menuPosition: widget.position,
         widthConfiguration: widget.widthConfiguration,
+        borderRadius: widget.borderRadius,
       );
 
       if (!mounted) return;
@@ -238,6 +242,7 @@ Future<VoidCallback?> _showCupertinoMenu({
   required Size buttonSize,
   required PullDownMenuPosition menuPosition,
   required PullDownMenuWidthConfiguration? widthConfiguration,
+  BorderRadius? borderRadius,
 }) {
   final navigator = Navigator.of(context);
 
@@ -268,6 +273,7 @@ Future<VoidCallback?> _showCupertinoMenu({
         to: navigator.context,
       ),
       widthConfiguration: widthConfiguration,
+      borderRadius: borderRadius,
     ),
   );
 }
