@@ -17,4 +17,4 @@ dependencies:
     path: ../
 
 dev_dependencies:
-  very_good_analysis: ^3.1.0
+  very_good_analysis: 3.0.0

@@ -34,6 +34,8 @@ class PullDownMenuItem extends PullDownMenuEntry {
     this.destructiveColor,
     this.onHoverColor,
     this.onHoverTextStyle,
+    this.decoration,
+    this.itemTile,
   }) : assert(
           icon == null || iconWidget == null,
           'Please provide either icon or iconWidget',
@@ -41,6 +43,9 @@ class PullDownMenuItem extends PullDownMenuEntry {
 
   /// Called when the menu item is tapped.
   final VoidCallback? onTap;
+
+  final BoxDecoration? decoration;
+  final Widget? itemTile;
 
   /// Whether the user is permitted to tap this item.
   ///
@@ -133,10 +138,11 @@ class PullDownMenuItem extends PullDownMenuEntry {
   Widget buildChild() => Row(
         children: [
           Expanded(
-            child: Text(
-              title,
-              textAlign: TextAlign.start,
-            ),
+            child: itemTile ??
+                Text(
+                  title,
+                  textAlign: TextAlign.start,
+                ),
           ),
           if (icon != null || iconWidget != null)
             Padding(
@@ -228,6 +234,7 @@ class PullDownMenuItem extends PullDownMenuEntry {
                 alignment: AlignmentDirectional.centerStart,
                 constraints: BoxConstraints(minHeight: height),
                 padding: padding,
+                decoration: decoration,
                 child: buildChild(),
               ),
             ),

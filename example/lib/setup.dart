@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'item_examples.dart';
 import 'main.dart';
 
 final themeNotifier = ValueNotifier(ThemeMode.light);
@@ -68,10 +67,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           trailing: CupertinoButton(
-            onPressed: () => Navigator.push(
-              context,
-              CupertinoPageRoute<void>(builder: (_) => const ItemExamples()),
-            ),
+            onPressed: () {},
             padding: EdgeInsets.zero,
             child: const Text('Examples'),
           ),

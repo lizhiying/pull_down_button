@@ -28,7 +28,7 @@ class ThemingCustom extends StatelessWidget {
           PullDownButtonTheme(
             backgroundColor: colorScheme.surface,
             dividerColor: colorScheme.outline,
-            largeDividerColor: colorScheme.outlineVariant,
+            // largeDividerColor: colorScheme.outlineVariant,
             destructiveColor: colorScheme.error,
             textStyle: TextStyle(
               fontSize: 17,
